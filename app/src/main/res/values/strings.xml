@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name" translatable="false"> convertidora_two </string>
+    <string name="name"> Ingrese su Nombre </string>
+    <string name="lastname"> Ingrese su Apellido </string>
+    <string name="email"> Ingrese su Email </string>
+    <string name="password"> Ingrese su Contraseña </string>
+    <string name="button1"> Crear cuenta </string>
+    <string name="imagen1"> descripcion de imagen </string>
+    <string name="datos"> Tus datos ingresados :</string>
+    <string name="button2" translatable="false"> . </string>
+</resources>

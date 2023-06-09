@@ -1,0 +1,8 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Convertidora_two" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:background">@color/gray</item>
+    </style>
+
+    <style name="Theme.Convertidora_two" parent="Base.Theme.Convertidora_two" />
+</resources>
