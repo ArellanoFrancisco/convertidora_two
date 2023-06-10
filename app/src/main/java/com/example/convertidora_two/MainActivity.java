@@ -66,10 +66,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity (recopila);
     }
         private boolean isValidName(String Name) {
-            return Name.length() >= 2 && Name.matches("[a-zA-Z]+ ");
+            return Name.length() >= 2 && Name.matches("[a-zA-Z ]+");
         }
         private boolean isValidLastname(String Lastname) {
-            return Lastname.length() >= 2 && Lastname.matches("[a-zA-Z]+ ");
+            return Lastname.length() >= 2 && Lastname.matches("[a-zA-Z ]+");
         }
         private boolean isValidEmail(String email) {
             return Patterns.EMAIL_ADDRESS.matcher(email).matches();
