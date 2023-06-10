@@ -5,11 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
-import android.view.View;
+import android.util.Patterns;
 import android.widget.Toast;
 
 import com.example.convertidora_two.databinding.ActivityMainBinding;
+
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,24 +24,34 @@ public class MainActivity extends AppCompatActivity {
         mBinding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(mBinding.getRoot());
 
-        Intent recopila = getIntent();
 
-        mBinding.name.setText("");
-        mBinding.lastname.setText("");
-        mBinding.email.setText("");
-        mBinding.password.setText("");
+        mBinding.button1.setOnClickListener(v -> {
+            String Name = Objects.requireNonNull(mBinding.name.getText()).toString();
+            String Lastname = Objects.requireNonNull(mBinding.lastname.getText()).toString();
+            String Email = Objects.requireNonNull(mBinding.email.getText()).toString();
+            String Password = mBinding.password.getText().toString();
 
-        mBinding.button1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String Name = mBinding.name.getText().toString();
-                String Lastname = mBinding.lastname.getText().toString();
-                String Email = mBinding.email.getText().toString();
-                String Password = mBinding.password.getText().toString();
-                Toast.makeText(MainActivity.this, "bienvenido "+ Name+ ""+Lastname,Toast.LENGTH_LONG).show();
-                recopila(Name,Lastname,Email,Password);
-                Log.d("busca elementos"," "+Name +" " + Lastname + "" + Email);
-            }
+            if (TextUtils.isEmpty(Name) || TextUtils.isEmpty(Lastname) || TextUtils.isEmpty(Email) || TextUtils.isEmpty(Password)) {
+                String toast1 = getString(R.string.toast1);
+                Toast.makeText(MainActivity.this, toast1, Toast.LENGTH_LONG).show();
+            } else if (!isValidName(Name)) {
+                String toast2 = getString(R.string.toast2);
+                Toast.makeText(MainActivity.this, toast2, Toast.LENGTH_LONG).show();
+            } else if (!isValidLastname(Lastname)) {
+                String toast3 = getString(R.string.toast3);
+                Toast.makeText(MainActivity.this, toast3, Toast.LENGTH_LONG).show();
+            } else if (!isValidEmail(Email)) {
+                String toast4 = getString(R.string.toast4);
+                Toast.makeText(MainActivity.this, toast4, Toast.LENGTH_LONG).show();
+            } else if (!isValidPassword(Password)) {
+                String toast5 = getString(R.string.toast5);
+                Toast.makeText(MainActivity.this, toast5, Toast.LENGTH_LONG).show();
+            } else {
+                String Welcome = getString(R.string.welcome);
+                Toast.makeText(MainActivity.this,Welcome +" "+ Name + " "+ Lastname,Toast.LENGTH_LONG).show();
+                recopila(Name, Lastname, Email, Password);
+                Log.d("busca elementos", " " + Name + " " + Lastname + " " + Email);
+           }
 
         });
 
@@ -52,5 +65,16 @@ public class MainActivity extends AppCompatActivity {
 
         startActivity (recopila);
     }
-
-}
+        private boolean isValidName(String Name) {
+            return Name.length() >= 2 && Name.matches("[a-zA-Z]+ ");
+        }
+        private boolean isValidLastname(String Lastname) {
+            return Lastname.length() >= 2 && Lastname.matches("[a-zA-Z]+ ");
+        }
+        private boolean isValidEmail(String email) {
+            return Patterns.EMAIL_ADDRESS.matcher(email).matches();
+        }
+        private boolean isValidPassword(String password) {
+            return password.length() >= 8;
+        }
+    }

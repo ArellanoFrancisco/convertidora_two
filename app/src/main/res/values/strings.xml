@@ -8,4 +8,10 @@
     <string name="imagen1"> descripcion de imagen </string>
     <string name="datos"> Tus datos ingresados :</string>
     <string name="button2" translatable="false"> . </string>
+    <string name="toast1"> Por favor, complete todos los campos. </string>
+    <string name="toast2"> Por favor, ingrese un nombre valido. </string>
+    <string name="toast3"> Por favor, ingrese un apellido valido. </string>
+    <string name="toast4"> Por favor, ingrese un email valido. </string>
+    <string name="toast5"> su contraseña debe tener minimo 8 caracteres. </string>
+    <string name="welcome">Bienvenido  </string>
 </resources>

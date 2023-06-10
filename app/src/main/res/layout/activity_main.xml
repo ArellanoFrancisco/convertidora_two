@@ -11,8 +11,8 @@
         android:id="@+id/linearLayout"
         android:layout_width="353dp"
         android:layout_height="679dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -42,6 +42,7 @@
                 android:background="@android:drawable/editbox_background_normal"
                 android:backgroundTint="@color/white"
                 android:hint="@string/name"
+                android:inputType="text|textPersonName"
                 android:textColor="@color/black"
                 android:textColorHint="@color/material_dynamic_neutral10"
                 tools:ignore="TextContrastCheck" />
@@ -63,6 +64,7 @@
                 android:background="@android:drawable/editbox_background_normal"
                 android:backgroundTint="@color/white"
                 android:hint="@string/lastname"
+                android:inputType="text|textPersonName"
                 android:textColor="@color/black"
                 android:textColorHint="@color/material_dynamic_neutral10"
                 tools:ignore="TextContrastCheck" />
@@ -84,6 +86,7 @@
                 android:background="@android:drawable/editbox_background_normal"
                 android:backgroundTint="@color/white"
                 android:hint="@string/email"
+                android:inputType="text|textEmailAddress|textAutoComplete"
                 android:textColor="@color/black"
                 android:textColorHint="@color/material_dynamic_neutral10"
                 tools:ignore="TextContrastCheck" />
